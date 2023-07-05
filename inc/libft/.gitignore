@@ -45,3 +45,11 @@ ft_lstsize.o
 ft_lstclear.o
 ft_lstiter.o
 ft_lstmap.o
+ft_printf.o
+ft_putchar_print.o
+ft_putnbr_hx_print.o
+ft_putnbr_print.o
+ft_putptr_print.o
+ft_putstr_print.o
+ft_putunnbr_print.o
+ft_strcpy.o

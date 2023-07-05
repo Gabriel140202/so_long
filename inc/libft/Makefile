@@ -50,7 +50,15 @@ SRCS = src/ft_atoi.c\
 		src/ft_lstsize.c\
 		src/ft_lstclear.c\
 		src/ft_lstiter.c\
-		src/ft_lstmap.c
+		src/ft_lstmap.c\
+		src/ft_printf.c\
+		src/ft_putchar_print.c\
+		src/ft_putnbr_hx_print.c\
+		src/ft_putnbr_print.c\
+		src/ft_putptr_print.c\
+		src/ft_putstr_print.c\
+		src/ft_putunnbr_print.c\
+		src/ft_strcpy.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(notdir $(SRCS:.c=.o)))
 

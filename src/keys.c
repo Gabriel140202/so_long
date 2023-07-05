@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 11:44:54 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 15:01:59 by gfrancis         ###   ########.fr       */
+/*   Created: 2023/07/05 15:21:41 by gfrancis          #+#    #+#             */
+/*   Updated: 2023/07/05 15:39:22 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../inc/so_long.h"
 
-#include "libft.h"
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-char	*ft_substr_gnl(char *str, int start, int len, int do_free);
-
-#endif
+int	key_hook(int keycode, s_program *program)
+{
+	if(keycode == 65307)
+		mlx_destroy_window(program->mlx, program->win);
+	return (0);
+}

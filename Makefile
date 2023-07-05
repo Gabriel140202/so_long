@@ -1,10 +1,12 @@
+.SILENT:
 NAME      = so_long
 CC        = clang
 CFLAGS    = -Wall -Wextra -Werror
 SRC_DIR   = ./src
 OBJ_DIR   = ./obj
 
-SRCS = main.c
+SRCS = so_long.c\
+		keys.c
 
 
 

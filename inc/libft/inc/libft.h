@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 14:42:03 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/04 14:57:51 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:03:36 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdarg.h>
 # include "get_next_line.h"
 
 typedef struct s_list
@@ -68,5 +71,13 @@ int			ft_lstsize(t_list *lst);
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			ft_printf(const char *str, ...);
+int			ft_putnbr_print(int nb);
+int			ft_putstr_print(char *s);
+int			ft_putchar_print(char c);
+int			ft_putunnbr_print(unsigned int nbr);
+char		*ft_strcpy(char *dest, char *src);
+int			ft_putnbr_hx_print(unsigned int nbr, int caps);
+int			ft_putptr_print(unsigned long nbr);
 
 #endif
