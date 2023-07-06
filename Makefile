@@ -6,7 +6,11 @@ SRC_DIR   = ./src
 OBJ_DIR   = ./obj
 
 SRCS = so_long.c\
-		keys.c
+		keys.c\
+		map.c\
+		data.c\
+		error.c\
+		ft_free.c
 
 
 
