@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:13:42 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/06 11:24:34 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:34:36 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,21 @@ void ft_error(s_program *program, int erro)
 {
 	(void)program;
 	ft_putstr_fd("INVALID\n", 1);
+	if(erro == 0)
+		ft_putstr_fd("Mensagem de erro padrao\n", 1);
 	if(erro == 1)
 		ft_putstr_fd("Wrong map extension\n", 1);
 	ft_free(program);
+}
+
+void ft_error_map(char **map, int erro)
+{
+	ft_putstr_fd("INVALID\n", 1);
+	if(erro == 0)
+		ft_putstr_fd("Mensagem de erro padrao\n", 1);
+	if(erro == 1)
+		ft_putstr_fd("Map not created\n", 1);
+	if(erro == 2)
+		ft_putstr_fd("Wrong walls at the map\n", 1);
+	free (map);
 }

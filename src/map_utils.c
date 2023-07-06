@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.c                                             :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 10:08:40 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/06 14:35:31 by gfrancis         ###   ########.fr       */
+/*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
+/*   Updated: 2023/07/06 14:34:11 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	data(char *path, s_program *program)
+char	**create_matrix(t_list *list, int i)
 {
-	char **map;
+	t_list	*tmp;
+	char	**mtx;
+	int		j;
 
-	check_map_extension(path, program);
-	map = read_map(path, program);
-	printf("Lido com sucesso");
-	if(map == NULL)
-		ft_error_map(map, 1);
-	return (0);
+	j = 0;
+	tmp = list;
+	mtx = malloc(sizeof(char *) * (i + 1));
+	if (!mtx)
+		return (0);
+	while (tmp != 0)
+	{
+		mtx[j] = tmp->content;
+		tmp = tmp->next;
+		j++;
+	}
+	mtx[j] = 0;
+	return (mtx);
 }

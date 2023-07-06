@@ -7,3 +7,4 @@ data.o
 map.o
 error.o
 ft_free.o
+map_utils.o

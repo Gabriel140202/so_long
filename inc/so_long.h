@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/06 11:23:52 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:34:21 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 #include "libft/inc/libft.h"
 #include "minilibx-linux/mlx.h"
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+typedef struct t_map{
+	
+	void	*player;
+	void	*wall;
+	void	*collectible;
+	void	*ground;
+	void	*exit;
+}				s_map;
 
 typedef struct	t_program {
 	void	*mlx;
 	void	*win;
+	s_map	map;
 }				s_program;
 
 /*/______________________________KEYS________________________________/*/
@@ -41,19 +43,21 @@ int	key_hook(int keycode, s_program *program);
 /*/__________________________________________________________________/*/
 
 /*/________________________________DATA______________________________/*/
-int	data(char *map_extension, s_program *program);
+int	data(char *path, s_program *program);
 /*/__________________________________________________________________/*/
 
 /*/________________________________ERROR_____________________________/*/
 void ft_error(s_program *program, int erro);
 int	ft_free(s_program *program);
+void ft_error_map(char **map, int erro);
 /*/__________________________________________________________________/*/
 
 /*/________________________________MAP_______________________________/*/
 void	check_map_extension(char *map_extension, s_program *program);
+char **read_map(char *path, s_program *program);
+char	**create_matrix(t_list *list, int i);
+void check_map(char **map, s_program *program);
 /*/__________________________________________________________________/*/
-
-
 
 int main(int argc, char **argv);
 

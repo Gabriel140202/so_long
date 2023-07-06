@@ -10,7 +10,8 @@ SRCS = so_long.c\
 		map.c\
 		data.c\
 		error.c\
-		ft_free.c
+		ft_free.c\
+		map_utils.c 
 
 
 
