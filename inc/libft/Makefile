@@ -41,7 +41,6 @@ SRCS = src/ft_atoi.c\
 		src/ft_putnbr_fd.c\
 		src/ft_putstr_fd.c\
 		src/get_next_line.c\
-		src/get_next_line_utils.c\
 		src/ft_lstadd_back.c\
 		src/ft_lstlast.c\
 		src/ft_lstadd_front.c\

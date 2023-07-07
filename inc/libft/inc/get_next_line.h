@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:44:54 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 15:01:59 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/07 10:59:18 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 #include "libft.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-char	*ft_substr_gnl(char *str, int start, int len, int do_free);
 
 #endif

@@ -6,15 +6,18 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:21:41 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 15:39:22 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:52:29 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	key_hook(int keycode, s_program *program)
+int	key_hook(int keycode, t_program *program)
 {
-	if(keycode == 65307)
-		mlx_destroy_window(program->mlx, program->win);
+	(void)program; 
+	if(keycode == 65307) {
+		// mlx_destroy_window(program->mlx, program->win);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

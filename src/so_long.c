@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:46:13 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/06 14:27:25 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:48:23 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int main(int argc, char **argv)
 {
-	s_program	*program;
-	(void)argv;
+	t_program	*program;
 	if (argc != 2)
 	{
 		write(1, "Numero de argumentos invalido.\n", 31);
 		return (0);
 	}
-	program = ft_calloc(1, sizeof(s_program));
+	program = ft_calloc(1, sizeof(t_program));
 	if (!program)
 		return (0);
 	data(argv[1], program);

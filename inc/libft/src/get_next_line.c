@@ -6,74 +6,90 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:46:38 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 10:22:09 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/07 10:45:01 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*ft_get_line(char *content)
+static int	find_i(char *saved)
 {
-	char	*line;
-	int		i;
+	int	i;
 
 	i = 0;
-	if (!ft_strlen(content))
+	while (saved[i])
 	{
-		free(content);
-		return (NULL);
-	}
-	while (content[i] != '\0' && content[i] != '\n')
+		if (saved[i] == '\n')
+			return (i);
 		i++;
-	if (content[i] == '\0')
-		i--;
-	line = ft_substr_gnl(content, 0, i + 1, 0);
-	return (line);
+	}
+	return (0);
 }
 
-char	*ft_read_file(int fd, char *content)
+static int	has_new_line(char *saved)
 {
-	char	*line;
-	int		reader;
+	int	i;
 
-	line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!line)
-		return (NULL);
-	reader = 1;
-	while (!ft_strrchr(content, '\n') && reader)
+	i = 0;
+	while (saved[i])
 	{
-		reader = read(fd, line, BUFFER_SIZE);
-		if (reader < 0)
-		{
-			free (line);
-			free (content);
-			return (NULL);
-		}
-		line[reader] = '\0';
-		content = ft_strjoin_gnl(content, line);
+		if (saved[i] == '\n')
+			return (1);
+		i++;
 	}
-	free(line);
-	return (content);
+	return (0);
+}
+
+static char	*return_line(char **saved)
+{
+	int		i;
+	char	*line;
+	char	*temp;
+
+	if (!*saved || **saved == '\0')
+		return (NULL);
+	i = find_i(*saved);
+	if (has_new_line(*saved))
+	{
+		line = ft_substr(*saved, 0, i + 1);
+		temp = ft_substr(*saved, i + 1, ft_strlen(*saved));
+		free (*saved);
+		*saved = temp;
+		if (**saved != '\0')
+			return (line);
+	}
+	else
+		line = ft_strdup(*saved);
+	free (*saved);
+	*saved = NULL;
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
-	static char		*content;
-	char			*get_line;
-	int				content_len;
-	int				get_line_len;
+	char		*buf;
+	static char	*saved[256];
+	char		*temp;
+	int			ret;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 256)
 		return (NULL);
-	content = ft_read_file(fd, content);
-	get_line = ft_get_line(content);
-	if (!get_line)
+	buf = (char *)malloc(sizeof(char) * 2);
+	if (!buf)
+		return (NULL);
+	ret = read(fd, buf, 1);
+	while (ret > 0)
 	{
-		content = NULL;
-		return (NULL);
+		buf[ret] = '\0';
+		if (saved[fd] == NULL)
+			saved[fd] = ft_strdup("");
+		temp = ft_strjoin(saved[fd], buf);
+		free (saved[fd]);
+		saved[fd] = temp;
+		if (has_new_line(saved[fd]))
+			break ;
+		ret = read(fd, buf, 1);
 	}
-	get_line_len = ft_strlen(get_line);
-	content_len = ft_strlen(content);
-	content = ft_substr_gnl(content, get_line_len, content_len - get_line_len, 1);
-	return (get_line);
+	free (buf);
+	return (return_line(&saved[fd]));
 }

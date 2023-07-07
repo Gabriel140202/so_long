@@ -1,7 +1,7 @@
 .SILENT:
 NAME      = so_long
 CC        = clang
-CFLAGS    = -Wall -Wextra -Werror
+CFLAGS    = -Wall -Wextra -Werror -g
 SRC_DIR   = ./src
 OBJ_DIR   = ./obj
 
