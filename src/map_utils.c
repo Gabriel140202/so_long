@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/07 15:18:23 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:46:53 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,12 @@ void	ft_print_list(t_list *lista) {
 	}
 }
 
-void check_first_last_line(char **map, int line)
+void check_first_last_line(char **map, int line, int size)
 {
 	int i;
-	int tamanho;
 	
 	i = 0;
-	tamanho = ft_strlen(map[line]) - 2;
-	while ((map[line][i] && i <= tamanho))
+	while ((map[line][i] && i <= size - 2))
 	{
 		if (map[line][i] == '1')
 		{
@@ -58,15 +56,41 @@ void check_first_last_line(char **map, int line)
 	}
 }
 
-/*void check_body(char **map, int size)
+void check_body(char **map, t_program *program)
 {
-	olha o corpo do mapa se tem coletavais e player e tals...
+	size_t			x;
+	size_t			y;
 	
-}*/
+	y = 1;
+	x = 0;
+	while (y < program->map.height)
+	{
+		if(map[y][0] != '1' || map[y][program->map.width - 2] != '1')
+			ft_error_map(map, 2);
+		while(x <= program->map.width - 2)
+		{
+			if (map[y][x] == 'P')
+				program->map.player++;
+			if (map[y][x] == 'C')
+				program->map.collectible++;
+			if (map[y][x] == 'E')
+				program->map.exit++;
+			x++;
+		}
+		if(!(program->map.width == ft_strlen(map[y])))
+			ft_error_map(map, 4);
+		x = 0;
+		y++;
+	}
+	if (!(program->map.player == 1 && program->map.exit == 1 && program->map.collectible >= 1))
+		ft_error_map(map, 3);
+}
 
-void check_map(char **map, int size)
+void check_map(char **map, int line, t_program *program)
 {
-	check_first_last_line(map, 0);
-	check_first_last_line(map, size);
-	
+	program->map.height = line;
+	program->map.width = ft_strlen(map[0]);
+	check_first_last_line(map, 0, program->map.width);
+	check_first_last_line(map, line, program->map.width);
+	check_body(map, program);
 }
