@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:08:40 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/07 11:55:41 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:15:11 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ void	print_matrix(char **map) {
 
 int	data(char *path, t_program *program)
 {
-	char **map;
-
 	check_map_extension(path, program);
-	map = read_map(path, program);
+	read_map(path, program);
 	ft_putendl_fd("Lido com sucesso", 1);
-	if(map == NULL || *map == NULL)
-		ft_error_map(map, 1);
 	return (0);
 }

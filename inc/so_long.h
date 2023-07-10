@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 13:00:20 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:17:43 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_map
 	int		collectible;
 	void	*ground;
 	int		exit;
+	char	**map;
 	size_t		height;
 	size_t		width;
 }				t_map;
@@ -57,11 +58,11 @@ void	ft_free_map(char **map);
 
 /*/________________________________MAP_______________________________/*/
 void	check_map_extension(char *map_extension, t_program *program);
-char **read_map(char *path, t_program *program);
+void	read_map(char *path, t_program *program);
 char	**create_matrix(t_list *list, int i);
 void check_first_last_line(char **map, int line, int size);
-void check_map(char **map, int size, t_program *program);
-void check_body(char **map, t_program *program);
+void check_map(int size, t_program *program);
+void check_body(t_program *program);
 /*/__________________________________________________________________/*/
 
 int main(int argc, char **argv);

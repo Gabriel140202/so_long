@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:13:42 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 12:59:08 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:32:55 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void ft_error_program(t_program *program, int erro)
 	if(erro == 1)
 		ft_putstr_fd("Wrong map extension\n", 1);
 	ft_free_program(program);
+	exit(0);
 }
 
 void ft_error_map(char **map, int erro)
@@ -34,4 +35,5 @@ void ft_error_map(char **map, int erro)
 	if(erro == 4)
 		ft_putstr_fd("Invalid map\n", 1);
 	ft_free_map (map);
+	exit(0);
 }

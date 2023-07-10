@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:48 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 10:45:52 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:18:43 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ void	check_map_extension(char *map_extension, t_program *program)
 	ft_error_program(program, 1);
 }
 
-char **read_map(char *path, t_program *program)
+void	read_map(char *path, t_program *program)
 {
 	int				fd;
 	int				index;
-	char			**map;
 	t_list			*content;
 	char 			*line;
 	
@@ -41,9 +40,8 @@ char **read_map(char *path, t_program *program)
     	ft_lstadd_back(&content, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
-	map = create_matrix(content, ft_lstsize(content));
-	check_map(map, ft_lstsize(content) - 1, program);
+	program->map.map = create_matrix(content, ft_lstsize(content));
+	check_map(ft_lstsize(content) - 1, program);
 	ft_lstclear(&content, free);
 	close(fd);
-	return (map);
 }

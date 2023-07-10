@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:46:13 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 13:04:26 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:19:18 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 	data(argv[1], program);
 	program->mlx = mlx_init();
 	program->win = mlx_new_window(program->mlx, 1920, 1080, "so_long");
-	mlx_key_hook(program->win, key_hook, &program);
+	mlx_key_hook(program->win, key_hook, program);
 	mlx_loop(program->mlx);
+	return(0);
 }
