@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:48 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 16:18:43 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:37:10 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	check_map_extension(char *map_extension, t_program *program)
+char	**create_matrix(t_list *list, int i)
 {
-	int	i;
+	t_list	*tmp;
+	char	**mtx;
+	int		j;
 
-	i = ft_strlen(map_extension);
-	if (i > 2 && map_extension[i - 4] == '.' && map_extension[i - 3] == 'b'&& map_extension[i - 2] == 'e' && map_extension[i - 1] == 'r');
-	else
-	ft_error_program(program, 1);
+	j = 0;
+	tmp = list;
+	mtx = malloc(sizeof(char *) * (i + 1));
+	if (!mtx)
+		return (0);
+	while (tmp != 0)
+	{
+		mtx[j] = tmp->content;
+		tmp = tmp->next;
+		j++;
+	}
+	mtx[j] = 0;
+	return (mtx);
 }
 
 void	read_map(char *path, t_program *program)
@@ -27,8 +38,8 @@ void	read_map(char *path, t_program *program)
 	int				fd;
 	int				index;
 	t_list			*content;
-	char 			*line;
-	
+	char			*line;
+
 	index = 0;
 	content = NULL;
 	fd = open(path, O_RDONLY);
@@ -37,7 +48,7 @@ void	read_map(char *path, t_program *program)
 	line = get_next_line(fd);
 	while (line != NULL) 
 	{
-    	ft_lstadd_back(&content, ft_lstnew(line));
+		ft_lstadd_back(&content, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
 	program->map.map = create_matrix(content, ft_lstsize(content));

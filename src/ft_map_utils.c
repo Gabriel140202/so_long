@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   ft_map_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/10 17:25:39 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:36:37 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-char	**create_matrix(t_list *list, int i)
+void	check_map_extension(char *map_extension, t_program *program)
 {
-	t_list	*tmp;
-	char	**mtx;
-	int		j;
+	int	i;
 
-	j = 0;
-	tmp = list;
-	mtx = malloc(sizeof(char *) * (i + 1));
-	if (!mtx)
-		return (0);
-	while (tmp != 0)
-	{
-		mtx[j] = tmp->content;
-		tmp = tmp->next;
-		j++;
-	}
-	mtx[j] = 0;
-	return (mtx);
+	i = ft_strlen(map_extension);
+	if (i > 2 && map_extension[i - 4] == '.' && map_extension[i - 3] == 'b'&& map_extension[i - 2] == 'e' && map_extension[i - 1] == 'r');
+	else
+		ft_error_program (program, 1);
 }
 
 //excluir dps
@@ -41,10 +30,10 @@ void	ft_print_list(t_list *lista) {
 	}
 }
 
-void check_first_last_line(char **map, int line, int size)
+void	check_first_last_line(char **map, int line, int size)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while ((map[line][i] && i <= size - 2))
 	{
@@ -57,18 +46,18 @@ void check_first_last_line(char **map, int line, int size)
 	}
 }
 
-void check_body(t_program *program)
+void	check_body(t_program *program)
 {
 	size_t			x;
 	size_t			y;
-	
+
 	y = 1;
 	x = 0;
 	while (y < program->map.height)
 	{
-		if(program->map.map[y][0] != '1' || program->map.map[y][program->map.width - 2] != '1')
+		if (program->map.map[y][0] != '1' || program->map.map[y][program->map.width - 2] != '1')
 			ft_error_map(program->map.map, 2);
-		while(x <= program->map.width - 2)
+		while (x <= program->map.width - 2)
 		{
 			if (program->map.map[y][x] == 'P')
 				program->map.player++;
@@ -87,7 +76,7 @@ void check_body(t_program *program)
 		ft_error_map(program->map.map, 3);
 }
 
-void check_map(int line, t_program *program)
+void	check_map(int line, t_program *program)
 {
 	program->map.height = line;
 	program->map.width = ft_strlen(program->map.map[0]);

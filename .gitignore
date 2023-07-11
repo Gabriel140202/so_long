@@ -1,11 +1,11 @@
 so_long
-keys.o
+ft_keys.o
 so_long.o
 teste.txt
 teste.ber
-data.o
-map.o
-error.o
+ft_data.o
+ft_map.o
+ft_error.o
 ft_free.o
-map_utils.o
+ft_map_utils.o
 .vscode
