@@ -11,7 +11,8 @@ SRCS = so_long.c\
 		ft_data.c\
 		ft_error.c\
 		ft_free.c\
-		ft_map_utils.c 
+		ft_map_utils.c \
+		ft_path.c
 
 
 

@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 12:34:10 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:28:38 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,22 @@
 # include "libft/inc/libft.h"
 # include "minilibx-linux/mlx.h"
 
+typedef struct s_player
+{
+	int			x;
+	int			y;
+	int			player;
+}				t_player;
+
 typedef struct s_map
 {
-	int			player;
+	t_player	player;
 	void		*wall;
 	int			collectible;
 	void		*ground;
 	int			exit;
 	char		**map;
+	char		**map2;
 	size_t		height;
 	size_t		width;
 }				t_map;
@@ -62,8 +70,14 @@ void		check_map_extension(char *map_extension, t_program *program);
 void		read_map(char *path, t_program *program);
 char		**create_matrix(t_list *list, int i);
 void		check_first_last_line(char **map, int line, int size);
-void		check_map(int size, t_program *program);
-void		check_body(t_program *program);
+void		check_map(int line, t_program *program, char **map);
+void		check_body(t_program *program, char **map, size_t x);
+/*/__________________________________________________________________/*/
+
+/*/________________________________PATH______________________________/*/
+void		flood_fill(int x, int y, int *flag, t_program *program);
+int			check_collec(char **map);
+int			fill_flood(t_program *program);
 /*/__________________________________________________________________/*/
 
 int			main(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:48 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 12:37:10 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:42:27 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,18 @@ void	read_map(char *path, t_program *program)
 	if (fd < 0)
 		ft_error_program(program, 0);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		ft_error_program(program, 2);
+	}
 	while (line != NULL) 
 	{
 		ft_lstadd_back(&content, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
 	program->map.map = create_matrix(content, ft_lstsize(content));
-	check_map(ft_lstsize(content) - 1, program);
+	program->map.map2 = create_matrix(content, ft_lstsize(content));
+	check_map(ft_lstsize(content) - 1, program, program->map.map);
 	ft_lstclear(&content, free);
 	close(fd);
 }

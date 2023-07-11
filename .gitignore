@@ -9,3 +9,4 @@ ft_error.o
 ft_free.o
 ft_map_utils.o
 .vscode
+ft_path.o
