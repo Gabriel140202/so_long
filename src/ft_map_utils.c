@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 15:22:14 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/12 10:30:54 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void	check_map_extension(char *extension, t_program *program)
 	if (!(i > 2 && extension[i - 4] == '.' && extension[i - 3] == 'b' && 
 			extension[i - 2] == 'e' && extension[i - 1] == 'r'))
 		ft_error_program (program, 1);
-}
-
-//excluir dps
-void	ft_print_list(t_list *lista)
-{
-	while (lista) 
-	{
-		ft_putstr_fd(lista->content, 1);
-		lista = lista->next;
-	}
 }
 
 void	check_first_last_line(char **map, int line, int size)
@@ -50,6 +40,8 @@ void	check_first_last_line(char **map, int line, int size)
 
 void	check_position(t_program *program, size_t x, size_t y)
 {
+	if (!ft_strchr("PCE10", program->map.map[y][x]))
+		ft_error_map(program->map.map, 4);
 	if (program->map.map[y][x] == 'P')
 	{
 		program->map.player.player++;
