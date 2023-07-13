@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/12 10:30:54 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:29:28 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ void	check_first_last_line(char **map, int line, int size)
 	while ((map[line][i] && i <= size - 2))
 	{
 		if (map[line][i] == '1')
-		{
 			i++;
-		}
 		else 
 			ft_error_map(map, 2);
 	}

@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:46:13 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 12:37:30 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:54:31 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,5 @@ int	main(int argc, char **argv)
 	if (!program)
 		return (0);
 	ft_data(argv[1], program);
-	program->mlx = mlx_init();
-	program->win = mlx_new_window(program->mlx, 1920, 1080, "so_long");
-	mlx_key_hook(program->win, key_hook, program);
-	mlx_loop(program->mlx);
 	return (0);
 }

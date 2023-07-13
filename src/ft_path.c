@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:41:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 15:28:27 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:59:45 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int	fill_flood(t_program *program)
 	{
 		ft_error_map(program->map.map, 5);
 	}
-	free_matrix(program->map.map2);
+	ft_free_map(program->map.map2);
 	return (0);
 }
