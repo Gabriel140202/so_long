@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:48 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/11 15:42:27 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:35:04 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**create_matrix(t_list *list, int i)
 		return (0);
 	while (tmp != 0)
 	{
-		mtx[j] = tmp->content;
+		mtx[j] = ft_strdup(tmp->content);
 		tmp = tmp->next;
 		j++;
 	}
@@ -57,7 +57,7 @@ void	read_map(char *path, t_program *program)
 	}
 	program->map.map = create_matrix(content, ft_lstsize(content));
 	program->map.map2 = create_matrix(content, ft_lstsize(content));
-	check_map(ft_lstsize(content) - 1, program, program->map.map);
+	check_map(ft_lstsize(content) - 1, program, program->map.map2);
 	ft_lstclear(&content, free);
 	close(fd);
 }

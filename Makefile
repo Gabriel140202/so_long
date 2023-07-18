@@ -13,7 +13,8 @@ SRCS = so_long.c\
 		ft_free.c\
 		ft_map_utils.c \
 		ft_path.c\
-		ft_data_utils.c
+		ft_data_utils.c\
+		ft_init_imagens.c
 
 
 

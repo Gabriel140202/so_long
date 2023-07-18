@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:41:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/13 10:59:45 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:23:05 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 void	flood_fill(int x, int y, int *flag, t_program *program)
 {
-	char	**tmp;
-
-	tmp = program->map.map2;
-	if (tmp[y][x] == '1' || tmp[y][x] == 'P' || tmp[y][x] == 'D')
+	if (program->map.map2[y][x] == '1' || program->map.map2[y][x] == 'P' || program->map.map2[y][x] == 'D')
 		return ;
-	else if (tmp[y][x] == '0')
-		tmp[y][x] = 'P';
-	else if (tmp [y][x] == 'C')
-		tmp[y][x] = 'D';
-	else if (tmp[y][x] == 'E')
+	else if (program->map.map2[y][x] == '0')
+		program->map.map2[y][x] = 'P';
+	else if (program->map.map2 [y][x] == 'C')
+		program->map.map2[y][x] = 'D';
+	else if (program->map.map2[y][x] == 'E')
 	{
 		(*flag)++;
-		tmp[y][x] = 'E';
+		program->map.map2[y][x] = 'E';
 	}
 	flood_fill(x + 1, y, flag, program);
 	flood_fill(x - 1, y, flag, program);
@@ -68,9 +65,7 @@ int	fill_flood(t_program *program)
 	flood_fill(x, y + 1, &flag, program);
 	flood_fill(x, y - 1, &flag, program);
 	if (flag == 0 || !check_collec(program->map.map2))
-	{
 		ft_error_map(program->map.map, 5);
-	}
 	ft_free_map(program->map.map2);
 	return (0);
 }

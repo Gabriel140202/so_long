@@ -1,14 +1,7 @@
 so_long
-ft_keys.o
-so_long.o
 teste.txt
 teste.ber
-ft_data.o
-ft_map.o
-ft_error.o
-ft_free.o
-ft_map_utils.o
 .vscode
-ft_path.o
 ahhhhh.ber
-ft_data_utils.o
+images
+*.o

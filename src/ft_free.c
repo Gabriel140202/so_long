@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:18:52 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/13 11:00:00 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:02:28 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,12 @@ void	ft_free_program(t_program *program)
 void	ft_free_map(char **map)
 {
 	if (map)
+	{
+		int i;
+		
+		i = -1;
+		while (map[++i])
+			free(map[i]);
 		free(map);
-}
-
-void	free_matrix(char **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
+	}
 }

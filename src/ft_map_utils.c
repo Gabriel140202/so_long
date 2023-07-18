@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/12 16:29:28 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:56:42 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,42 +38,49 @@ void	check_first_last_line(char **map, int line, int size)
 
 void	check_position(t_program *program, size_t x, size_t y)
 {
-	if (!ft_strchr("PCE10", program->map.map[y][x]))
-		ft_error_map(program->map.map, 4);
-	if (program->map.map[y][x] == 'P')
+	if (!ft_strchr("PCE10", program->map.map2[y][x]))
+		ft_error_map(program->map.map2, 4);
+	if (program->map.map2[y][x] == 'P')
 	{
-		program->map.player.player++;
+		program->map.player.qtd++;
 		program->map.player.x = x;
 		program->map.player.y = y;
 	}
-	if (program->map.map[y][x] == 'C')
-		program->map.collectible++;
-	if (program->map.map[y][x] == 'E')
-		program->map.exit++;
+	if (program->map.map2[y][x] == 'C')
+		program->map.collectible.qtd++;
+	if (program->map.map2[y][x] == 'E')
+		program->map.exit.qtd++;
+	
 }
 
-void	check_body(t_program *program, char **map, size_t x)
+void	check_body(t_program *program, char **map, int x)
 {
-	size_t			y;
+	int			y;
 
 	y = 1;
 	while (y < program->map.height)
 	{
 		if (map[y][0] != '1' || map[y][program->map.width - 2] != '1')
-			ft_error_map(program->map.map, 2);
+		{
+			ft_error_map(program->map.map2, 2);
+			ft_free_map(program->map.map);
+		}
 		while (x <= program->map.width - 2)
 		{
 			check_position(program, x, y);
 			x++;
 		}
-		if (!(program->map.width == ft_strlen(program->map.map[y])))
-			ft_error_map(program->map.map, 4);
+		if (!(program->map.width == (int)ft_strlen(program->map.map2[y])))
+			ft_error_map(program->map.map2, 4);
 		x = 0;
 		y++;
 	}
-	if (!(program->map.player.player == 1 && program->map.exit == 1 
-			&& program->map.collectible >= 1))
-		ft_error_map(program->map.map, 3);
+	if (!(program->map.player.qtd == 1 && program->map.exit.qtd == 1 
+			&& program->map.collectible.qtd >= 1))
+	{
+		ft_error_map(program->map.map2, 3);
+		ft_free_map(program->map.map);
+	}
 }
 
 void	check_map(int line, t_program *program, char **map)
