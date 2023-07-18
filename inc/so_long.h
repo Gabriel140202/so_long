@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/17 15:15:20 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:25:48 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		ft_error_program(t_program *program, int erro);
 void		ft_free_program(t_program *program);
 void		ft_error_map(char **map, int erro);
 void		ft_free_map(char **map);
+void		ft_free_img(t_program *program);
 /*/__________________________________________________________________/*/
 
 /*/________________________________MAP_______________________________/*/
@@ -115,7 +116,7 @@ int			fill_flood(t_program *program);
 
 /*/______________________________IMAGENS_____________________________/*/
 
-void	make_window(char **map, t_program *program);
+void		make_window(t_program *program);
 
 /*/__________________________________________________________________/*/
 int			main(int argc, char **argv);
