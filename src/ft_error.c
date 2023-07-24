@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:13:42 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/12 10:30:18 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:38:49 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_error_program(t_program *program, int erro)
 		ft_putstr_fd("Wrong map extension\n", 2);
 	if (erro == 2)
 		ft_putstr_fd("Don't have a map\n", 2);
-	ft_free_program(program);
+	free(program);
 	exit(0);
 }
 
