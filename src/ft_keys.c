@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:21:41 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/24 14:45:44 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:57:07 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 int	key_hook(int keycode, t_program *program)
 {
-	if (keycode == 65307) 
+	if (keycode == KEY_ESC) 
 		ft_free_program(program);
+	if (keycode == KEY_W)
+		move_w(program);
+	if (keycode == KEY_S)
+		move_s(program);
+	if (keycode == KEY_A)
+		move_a(program);
+	if (keycode == KEY_D)
+		move_d(program);
 	return (0);
 }

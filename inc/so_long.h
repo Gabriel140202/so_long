@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/24 14:44:07 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:57:12 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,18 @@ typedef struct s_program
 /*/______________________________KEYS________________________________/*/
 enum e_keys
 {
-	key_A = 97,
-	key_S = 115,
-	key_D = 100,
-	key_W = 119,
+	KEY_ESC 	= 65307,
+	KEY_A 		= 97,
+	KEY_S 		= 115,
+	KEY_D 		= 100,
+	KEY_W 		= 119,
 };
 int			key_hook(int keycode, t_program *program);
 int			x_press(t_program *program);
+void		move_w(t_program *program);
+void		move_s(t_program *program);
+void		move_a(t_program *program);
+void		move_d(t_program *program);
 /*/__________________________________________________________________/*/
 
 /*/________________________________DATA______________________________/*/

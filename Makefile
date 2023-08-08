@@ -14,7 +14,8 @@ SRCS = so_long.c\
 		ft_map_utils.c \
 		ft_path.c\
 		ft_data_utils.c\
-		ft_init_imagens.c
+		ft_init_imagens.c\
+		ft_move_player.c
 
 
 
@@ -45,5 +46,9 @@ fclean: clean
 	make clean -C inc/minilibx-linux/
 
 re: fclean all
+
+run: re
+	$(MAKE) all
+	./$(NAME) ahhhhh.ber
 
 .PHONY: all clean fclean re  
