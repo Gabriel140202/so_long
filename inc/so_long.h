@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 16:37:57 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:21:25 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_player
 	int					x;
 	int					y;
 	int					qtd;
+	int					steps;
 	void				*image;
 }				t_player;
 

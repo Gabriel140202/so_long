@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 16:08:56 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 20:07:50 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 22:04:26 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	move_w(t_program *program)
 		map[y - 1][x] = 'P';
 		map[y][x] = '0';
 		program->map.player.y--;
+		program->map.player.steps++;
 		reset_img(program);
 	}
 	else if (map[y][x] == 'P' && map[y - 1][x] == 'C')
@@ -33,6 +34,8 @@ void	move_w(t_program *program)
 		map[y - 1][x] = 'P';
 		map[y][x] = '0';
 		program->map.player.y--;
+		program->map.player.steps++;
+		program->map.collectible.qtd--;
 		reset_img(program);
 	}
 }
@@ -52,6 +55,7 @@ void	move_s(t_program *program)
 		map[y + 1][x] = 'P';
 		map[y][x] = '0';
 		program->map.player.y++;
+		program->map.player.steps++;
 		reset_img(program);
 	}
 	else if (map[y][x] == 'P' && map[y + 1][x] == 'C')
@@ -59,9 +63,10 @@ void	move_s(t_program *program)
 		map[y + 1][x] = 'P';
 		map[y][x] = '0';
 		program->map.player.y++;
+		program->map.player.steps++;
+		program->map.collectible.qtd--;
 		reset_img(program);
 	}
-		reset_img(program);
 }
 
 
@@ -80,6 +85,7 @@ void	move_a(t_program *program)
 		map[y][x - 1] = 'P';
 		map[y][x] = '0';
 		program->map.player.x--;
+		program->map.player.steps++;
 		reset_img(program);
 	}
 	else if (map[y][x] == 'P' && map[y][x - 1] == 'C')
@@ -87,6 +93,8 @@ void	move_a(t_program *program)
 		map[y][x - 1] = 'P';
 		map[y][x] = '0';
 		program->map.player.x--;
+		program->map.player.steps++;
+		program->map.collectible.qtd--;
 		reset_img(program);
 	}
 }
@@ -106,6 +114,7 @@ void	move_d(t_program *program)
 		map[y][x + 1] = 'P';
 		map[y][x] = '0';
 		program->map.player.x++;
+		program->map.player.steps++;
 		reset_img(program);
 	}
 	else if (map[y][x] == 'P' && map[y][x + 1] == 'C')
@@ -113,6 +122,8 @@ void	move_d(t_program *program)
 		map[y][x + 1] = 'P';
 		map[y][x] = '0';
 		program->map.player.x++;
+		program->map.player.steps++;
+		program->map.collectible.qtd--;
 		reset_img(program);
 	}
 }

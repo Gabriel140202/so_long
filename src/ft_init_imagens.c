@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 16:39:02 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 21:59:58 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,13 @@ void	put_images(t_program *program, char **map)
 
 void	reset_img(t_program *program)
 {
+	char	*step;
+	
+	step = ft_itoa(program->map.player.steps);
 	mlx_clear_window(program->mlx, program->win);
 	put_images(program,program->map.map);
+	mlx_string_put(program->mlx, program->win, 20, 22, 0x00FFFFFF, step);
+	free(step);
 }
 
 void	make_window(t_program *program)
