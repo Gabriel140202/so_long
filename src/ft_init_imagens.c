@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/24 14:44:41 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:39:02 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ void	put_images(t_program *program, char **map)
 	}
 }
 
-int	reset_img(t_program *program)
+void	reset_img(t_program *program)
 {
 	mlx_clear_window(program->mlx, program->win);
 	put_images(program,program->map.map);
-	return (0);
 }
 
 void	make_window(t_program *program)
@@ -96,7 +95,8 @@ void	make_window(t_program *program)
 	program->map.player.image = mlx_xpm_file_to_image(program->mlx, PLAYER, &program->map.width, &program->map.height);
 	program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT, &program->map.width, &program->map.height);
 	program->map.collectible.image = mlx_xpm_file_to_image(program->mlx, COLLECTIBLE, &program->map.width, &program->map.height);
-	mlx_loop_hook(program->mlx, reset_img, program);
+	//mlx_loop_hook(program->mlx, reset_img, program);
+	reset_img(program);
 	mlx_loop(program->mlx);
 }
 

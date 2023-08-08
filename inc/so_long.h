@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 15:57:12 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:37:57 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ int			fill_flood(t_program *program);
 /*/______________________________IMAGENS_____________________________/*/
 
 void		make_window(t_program *program);
+void		reset_img(t_program *program);
 
 /*/__________________________________________________________________/*/
 int			main(int argc, char **argv);

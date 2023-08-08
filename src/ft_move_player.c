@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 16:08:56 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 15:59:24 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:36:29 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ void	move_w(t_program *program)
 	{
 		map[x - 1][y] = 'P';
 		map[x][y] = '0';
+		program->map.player.x--;
+		reset_img(program);
 	}
 	else if (map[x][y] == 'P' && map[x - 1][y] == 'C')
 	{
 		map[x - 1][y] = 'P';
 		map[x][y] = '0';
+		program->map.player.x--;
+		reset_img(program);
 	}
-	program->map.player.x--;
 }
 
 void	move_s(t_program *program)
@@ -45,17 +48,20 @@ void	move_s(t_program *program)
 	x = program->map.player.x;
 	y = program->map.player.y;
 	
-	if (map[x][y] == 'P' && map[x - 1][y] == '0')
+	if (map[x][y] == 'P' && map[x + 1][y] == '0')
 	{
 		map[x + 1][y] = 'P';
 		map[x][y] = '0';
+		program->map.player.x++;
+		reset_img(program);
 	}
-	else if (map[x][y] == 'P' && map[x - 1][y] == 'C')
+	else if (map[x][y] == 'P' && map[x + 1][y] == 'C')
 	{
 		map[x + 1][y] = 'P';
 		map[x][y] = '0';
+		program->map.player.x++;
+		reset_img(program);
 	}
-	program->map.player.x++;
 }
 
 void	move_a(t_program *program)
@@ -72,13 +78,16 @@ void	move_a(t_program *program)
 	{
 		map[x][y - 1] = 'P';
 		map[x][y] = '0';
+		program->map.player.y--;
+		reset_img(program);
 	}
 	else if (map[x][y] == 'P' && map[x][y - 1] == 'C')
 	{
 		map[x][y - 1] = 'P';
 		map[x][y] = '0';
+		program->map.player.y--;
+		reset_img(program);
 	}
-	program->map.player.y--;
 }
 
 void	move_d(t_program *program)
@@ -95,11 +104,14 @@ void	move_d(t_program *program)
 	{
 		map[x][y + 1] = 'P';
 		map[x][y] = '0';
+		program->map.player.y++;
+		reset_img(program);
 	}
 	else if (map[x][y] == 'P' && map[x][y + 1] == 'C')
 	{
 		map[x][y + 1] = 'P';
 		map[x][y] = '0';
+		program->map.player.y++;
+		reset_img(program);
 	}
-	program->map.player.y++;
 }
