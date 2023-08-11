@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 16:16:02 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:25:49 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ enum e_keys
 };
 int			key_hook(int keycode, t_program *program);
 int			x_press(t_program *program);
-void		move_w(t_program *program);
-void		move_s(t_program *program);
-void		move_a(t_program *program);
-void		move_d(t_program *program);
+void		move(t_program *program, int x, int y);
 /*/__________________________________________________________________/*/
 
 /*/________________________________DATA______________________________/*/
@@ -107,6 +104,7 @@ void		ft_free_img(t_program *program);
 /*/__________________________________________________________________/*/
 
 /*/________________________________MAP_______________________________/*/
+void		move_d(t_program *program);
 void		check_map_extension(char *map_extension, t_program *program);
 void		read_map(char *path, t_program *program);
 char		**create_matrix(t_list *list, int i);

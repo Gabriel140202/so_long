@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:21:41 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 16:10:18 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:13:42 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	key_hook(int keycode, t_program *program)
 	if (keycode == KEY_ESC) 
 		ft_free_program(program);
 	if (keycode == KEY_W)
-		move_w(program);
+		move(program, program->map.player.x, program->map.player.y - 1);
 	if (keycode == KEY_S)
-		move_s(program);
+		move(program, program->map.player.x, program->map.player.y + 1);
 	if (keycode == KEY_A)
-		move_a(program);
+		move(program, program->map.player.x - 1, program->map.player.y);
 	if (keycode == KEY_D)
-		move_d(program);
+		move(program, program->map.player.x + 1, program->map.player.y);
 	return (0);
 }
