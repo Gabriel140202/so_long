@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:41:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/18 14:23:05 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:21:08 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	flood_fill(int x, int y, int *flag, t_program *program)
 {
-	if (program->map.map2[y][x] == '1' || program->map.map2[y][x] == 'P' || program->map.map2[y][x] == 'D')
+	if (program->map.map2[y][x] == '1' || program->map.map2[y][x] == 'P' || program->map.map2[y][x] == 'D' || program->map.map2[y][x] == 'X')
 		return ;
 	else if (program->map.map2[y][x] == '0')
 		program->map.map2[y][x] = 'P';

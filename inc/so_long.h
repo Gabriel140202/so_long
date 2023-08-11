@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/08 20:21:25 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:16:02 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ typedef struct s_player
 	int					qtd;
 	int					steps;
 	void				*image;
-}				t_player;
+}							t_player;
 
 typedef struct s_exit
 {
 	int					qtd;
 	void				*image;
-}				t_exit;
+}							t_exit;
 
 typedef struct s_collectible
 {
 	int					qtd;
 	void				*image;
-}						t_collectile;
+}							t_collectile;
 
 typedef struct s_map
 {
@@ -66,14 +66,15 @@ typedef struct s_map
 	char				**map2;
 	int					height;
 	int					width;
-}						t_map;
+	void				*enemy;
+}							t_map;
 
 typedef struct s_program 
 {
 	void				*mlx;
 	void				*win;
 	t_map				map;
-}				t_program;
+}							t_program;
 
 /*/______________________________KEYS________________________________/*/
 enum e_keys
@@ -126,6 +127,7 @@ void		make_window(t_program *program);
 void		reset_img(t_program *program);
 
 /*/__________________________________________________________________/*/
+
 int			main(int argc, char **argv);
 
 #endif

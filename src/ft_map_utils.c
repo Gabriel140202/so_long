@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/18 13:56:42 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:20:19 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_first_last_line(char **map, int line, int size)
 
 void	check_position(t_program *program, size_t x, size_t y)
 {
-	if (!ft_strchr("PCE10", program->map.map2[y][x]))
+	if (!ft_strchr("PCE10X", program->map.map2[y][x]))
 		ft_error_map(program->map.map2, 4);
 	if (program->map.map2[y][x] == 'P')
 	{
