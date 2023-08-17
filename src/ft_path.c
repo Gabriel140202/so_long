@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:41:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 15:37:53 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:34:02 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	flood_fill(int x, int y, int *flag, t_program *program)
 {
-	if (program->map.map2[y][x] == '1' || program->map.map2[y][x] == 'P' || program->map.map2[y][x] == 'D' || program->map.map2[y][x] == 'X')
+	if (program->map.map2[y][x] == '1' || program->map.map2[y][x] == 'P'
+		|| program->map.map2[y][x] == 'D' || program->map.map2[y][x] == 'X')
 		return ;
 	else if (program->map.map2[y][x] == '0')
 		program->map.map2[y][x] = 'P';
@@ -23,7 +24,7 @@ void	flood_fill(int x, int y, int *flag, t_program *program)
 	else if (program->map.map2[y][x] == 'E')
 	{
 		(*flag)++;
-		program->map.map2[y][x] = 'E';
+		return ;
 	}
 	flood_fill(x + 1, y, flag, program);
 	flood_fill(x - 1, y, flag, program);
@@ -60,6 +61,7 @@ int	fill_flood(t_program *program)
 	x = program->map.player.x;
 	y = program->map.player.y;
 	flag = 0;
+	flood_fill(x, y, &flag, program);
 	flood_fill(x + 1, y, &flag, program);
 	flood_fill(x - 1, y, &flag, program);
 	flood_fill(x, y + 1, &flag, program);

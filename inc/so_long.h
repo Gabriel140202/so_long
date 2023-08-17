@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 18:25:49 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:46:57 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void		read_map(char *path, t_program *program);
 char		**create_matrix(t_list *list, int i);
 void		check_first_last_line(char **map, int line, int size);
 void		check_map(int line, t_program *program, char **map);
-void		check_body(t_program *program, char **map, int x);
+void		check_body(t_program *program, char **map, int x, int y);
 /*/__________________________________________________________________/*/
 
 /*/________________________________PATH______________________________/*/

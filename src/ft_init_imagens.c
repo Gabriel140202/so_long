@@ -6,40 +6,33 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 12:22:09 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:42:46 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_print_image(t_program *program, void *image, int i, int j, int option)
+void	ft_print_image(t_program *program, void *image, int i, int j)
 {
 	i = i * 64;
 	j = j * 64;
-	if (option == 0)
-		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
-	else
-	{
-		mlx_put_image_to_window(program->mlx, program->win,
-			program->map.ground, j, i);
-		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
-	}
+	mlx_put_image_to_window(program->mlx, program->win, image, j, i);
 }
 
 void	help_put_images(t_program *program, char **map, int i, int j)
 {
 	if (map[i][j] == '1')
-		ft_print_image(program, program->map.wall, i, j, 0);
+		ft_print_image(program, program->map.wall, i, j);
 	if (map[i][j] == '0')
-		ft_print_image(program, program->map.ground, i, j, 0);
+		ft_print_image(program, program->map.ground, i, j);
 	if (map[i][j] == 'P')
-		ft_print_image(program, program->map.player.image, i, j, 1);
+		ft_print_image(program, program->map.player.image, i, j);
 	if (map[i][j] == 'C')
-		ft_print_image(program, program->map.collectible.image, i, j, 0);
+		ft_print_image(program, program->map.collectible.image, i, j);
 	if (map[i][j] == 'E')
-		ft_print_image(program, program->map.exit.image, i, j, 0);
+		ft_print_image(program, program->map.exit.image, i, j);
 	if (map[i][j] == 'X')
-		ft_print_image(program, program->map.enemy, i, j, 0);
+		ft_print_image(program, program->map.enemy, i, j);
 }
 
 void	put_images(t_program *program, char **map)

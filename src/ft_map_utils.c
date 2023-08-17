@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 16:20:19 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:46:32 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,10 @@ void	check_position(t_program *program, size_t x, size_t y)
 		program->map.collectible.qtd++;
 	if (program->map.map2[y][x] == 'E')
 		program->map.exit.qtd++;
-	
 }
 
-void	check_body(t_program *program, char **map, int x)
+void	check_body(t_program *program, char **map, int x, int y)
 {
-	int			y;
-
-	y = 1;
 	while (y < program->map.height)
 	{
 		if (map[y][0] != '1' || map[y][program->map.width - 2] != '1')
@@ -89,6 +85,6 @@ void	check_map(int line, t_program *program, char **map)
 	program->map.width = ft_strlen(map[0]);
 	check_first_last_line(map, 0, program->map.width);
 	check_first_last_line(map, line, program->map.width);
-	check_body(program, map, 0);
+	check_body(program, map, 0, 1);
 	fill_flood(program);
 }
