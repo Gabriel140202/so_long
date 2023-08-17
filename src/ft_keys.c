@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:21:41 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 18:13:42 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:32:55 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_hook(int keycode, t_program *program)
 {
-	if (keycode == KEY_ESC) 
+	if (keycode == KEY_ESC)
 		ft_free_program(program);
 	if (keycode == KEY_W)
 		move(program, program->map.player.x, program->map.player.y - 1);

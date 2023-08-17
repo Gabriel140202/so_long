@@ -6,71 +6,39 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 17:47:44 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:11:14 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	print_exit(t_program *program, int i, int j)
+void	ft_print_image(t_program *program, void *image , int i, int j, int option)
 {
 	i = i * 64;
 	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.exit.image, j, i);
-	mlx_put_image_to_window(program->mlx, program->win, program->map.exit.image, j, i);
-}
-
-void	print_collectible(t_program *program, int i, int j)
-{
-	i = i * 64;
-	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.ground, j, i);
-	mlx_put_image_to_window(program->mlx, program->win, program->map.collectible.image, j, i);
-}
-
-void	print_player(t_program *program, int i, int j)
-{
-	i = i * 64;
-	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.exit.image, j, i);
-	mlx_put_image_to_window(program->mlx, program->win, program->map.player.image, j, i);
-}
-
-void	print_wall(t_program *program, int i, int j)
-{
-	i = i * 64;
-	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.wall, j, i);
-}
-
-void	print_ground(t_program *program, int i, int j)
-{
-	i = i * 64;
-	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.ground, j, i);
-}
-
-void	print_enemy(t_program *program, int i, int j)
-{
-	i = i * 64;
-	j = j * 64;
-	mlx_put_image_to_window(program->mlx, program->win, program->map.enemy, j, i);
+	if(option == 0)
+		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
+	else
+	{
+		mlx_put_image_to_window(program->mlx, program->win, program->map.ground, j, i);
+		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
+	}
 }
 
 void	help_put_images(t_program *program, char **map, int i, int j)
 {
 	if (map[i][j] == '1')
-		print_wall(program, i, j);
+		ft_print_image(program, program->map.wall, i, j, 0);
 	if (map[i][j] == '0')
-		print_ground(program, i, j);
+		ft_print_image(program, program->map.ground, i, j, 0);
 	if (map[i][j] == 'P')
-		print_player(program, i, j);
+		ft_print_image(program, program->map.player.image, i, j, 1);
 	if (map[i][j] == 'C')
-		print_collectible(program, i, j);
+		ft_print_image(program, program->map.collectible.image, i, j, 0);
 	if (map[i][j] == 'E')
-		print_exit(program, i, j);
+		ft_print_image(program, program->map.exit.image, i, j, 0);
 	if (map[i][j] == 'X')
-		print_enemy(program, i, j);
+		ft_print_image(program, program->map.enemy, i, j, 0);
 }
 
 void	put_images(t_program *program, char **map)
