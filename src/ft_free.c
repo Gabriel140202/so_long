@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:18:52 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/11 17:41:48 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 12:06:43 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_free_map(char **map)
 {
+	int	i;
+
+	i = -1;
 	if (map)
 	{
-		int i;
-		
-		i = -1;
 		while (map[++i])
 			free(map[i]);
 		free(map);
@@ -32,7 +32,7 @@ void	ft_free_img(t_program *program)
 	mlx_destroy_image(program->mlx, program->map.ground);
 	mlx_destroy_image(program->mlx, program->map.player.image);
 	mlx_destroy_image(program->mlx, program->map.wall);
-	mlx_destroy_image(program->mlx,	program->map.enemy);
+	mlx_destroy_image(program->mlx, program->map.enemy);
 }
 
 int	ft_free_program(t_program *program)

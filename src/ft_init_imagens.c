@@ -6,21 +6,22 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 11:47:03 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 12:22:09 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	ft_print_image(t_program *program, void *image , int i, int j, int option)
+void	ft_print_image(t_program *program, void *image, int i, int j, int option)
 {
 	i = i * 64;
 	j = j * 64;
-	if(option == 0)
+	if (option == 0)
 		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
 	else
 	{
-		mlx_put_image_to_window(program->mlx, program->win, program->map.ground, j, i);
+		mlx_put_image_to_window(program->mlx, program->win,
+			program->map.ground, j, i);
 		mlx_put_image_to_window(program->mlx, program->win, image, j, i);
 	}
 }
@@ -62,25 +63,31 @@ void	put_images(t_program *program, char **map)
 void	reset_img(t_program *program)
 {
 	char	*step;
-	
-	if(!program->map.collectible.qtd)
-		program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT_2, &program->map.width, &program->map.height);	
+
+	if (!program->map.collectible.qtd)
+		program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT_2,
+				&program->map.width, &program->map.height);
 	step = ft_itoa(program->map.player.steps);
 	mlx_clear_window(program->mlx, program->win);
-	put_images(program,program->map.map);
+	put_images(program, program->map.map);
 	mlx_string_put(program->mlx, program->win, 20, 22, 0x00FFFFFF, step);
 	free(step);
 }
 
 void	make_window(t_program *program)
 {
-	program->map.ground = mlx_xpm_file_to_image(program->mlx, GROUND, &program->map.width, &program->map.height);
-	program->map.wall = mlx_xpm_file_to_image(program->mlx, WALL, &program->map.width, &program->map.height);
-	program->map.player.image = mlx_xpm_file_to_image(program->mlx, PLAYER, &program->map.width, &program->map.height);
-	program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT, &program->map.width, &program->map.height);
-	program->map.collectible.image = mlx_xpm_file_to_image(program->mlx, COLLECTIBLE, &program->map.width, &program->map.height);
-	program->map.enemy = mlx_xpm_file_to_image(program->mlx, ENEMY, &program->map.width, &program->map.height);
+	program->map.ground = mlx_xpm_file_to_image(program->mlx, GROUND,
+			&program->map.width, &program->map.height);
+	program->map.wall = mlx_xpm_file_to_image(program->mlx, WALL,
+			&program->map.width, &program->map.height);
+	program->map.player.image = mlx_xpm_file_to_image(program->mlx, PLAYER,
+			&program->map.width, &program->map.height);
+	program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT,
+			&program->map.width, &program->map.height);
+	program->map.collectible.image = mlx_xpm_file_to_image(program->mlx,
+			COLLECTIBLE, &program->map.width, &program->map.height);
+	program->map.enemy = mlx_xpm_file_to_image(program->mlx, ENEMY,
+			&program->map.width, &program->map.height);
 	reset_img(program);
 	mlx_loop(program->mlx);
 }
-
