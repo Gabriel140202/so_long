@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 11:11:14 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:47:03 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	reset_img(t_program *program)
 {
 	char	*step;
 	
+	if(!program->map.collectible.qtd)
+		program->map.exit.image = mlx_xpm_file_to_image(program->mlx, EXIT_2, &program->map.width, &program->map.height);	
 	step = ft_itoa(program->map.player.steps);
 	mlx_clear_window(program->mlx, program->win);
 	put_images(program,program->map.map);
