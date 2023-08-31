@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:12:06 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 15:46:57 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:54:51 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,20 @@ typedef struct s_player
 	int					y;
 	int					qtd;
 	int					steps;
+	int					flag;
 	void				*image;
+	void				*img_r;
+	void				*img_l;
+	void				*img_u;
+	void				*img_d;
 }							t_player;
 
 typedef struct s_exit
 {
 	int					qtd;
+	void				*image_open;
 	void				*image;
+	int					flag;
 }							t_exit;
 
 typedef struct s_collectible
@@ -108,7 +115,7 @@ void		move_d(t_program *program);
 void		check_map_extension(char *map_extension, t_program *program);
 void		read_map(char *path, t_program *program);
 char		**create_matrix(t_list *list, int i);
-void		check_first_last_line(char **map, int line, int size);
+void		check_first_last_line(t_program *program, int line, int size);
 void		check_map(int line, t_program *program, char **map);
 void		check_body(t_program *program, char **map, int x, int y);
 /*/__________________________________________________________________/*/

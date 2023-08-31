@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 15:46:32 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:55:52 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ void	check_map_extension(char *extension, t_program *program)
 		ft_error_program (program, 1);
 }
 
-void	check_first_last_line(char **map, int line, int size)
+void	check_first_last_line(t_program *program, int line, int size)
 {
-	int	i;
+	int		i;
+	char 	**map;
 
+	map = program->map.map2;	
 	i = 0;
 	while ((map[line][i] && i <= size - 2))
 	{
@@ -34,6 +36,8 @@ void	check_first_last_line(char **map, int line, int size)
 		else 
 			ft_error_map(map, 2);
 	}
+	if (!(program->map.width == (int)ft_strlen(map[line])))
+			ft_error_map(map, 4);
 }
 
 void	check_position(t_program *program, size_t x, size_t y)
@@ -83,8 +87,8 @@ void	check_map(int line, t_program *program, char **map)
 {
 	program->map.height = line;
 	program->map.width = ft_strlen(map[0]);
-	check_first_last_line(map, 0, program->map.width);
-	check_first_last_line(map, line, program->map.width);
+	check_first_last_line(program, 0, program->map.width);
+	check_first_last_line(program, line, program->map.width);
 	check_body(program, map, 0, 1);
 	fill_flood(program);
 }
