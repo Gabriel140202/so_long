@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:08:40 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 14:27:58 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:09:52 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	ft_init_screen(t_program *program)
 
 int	ft_data(char *path, t_program *program)
 {
+	program->map.player.qtd = 0;
+	program->map.exit.qtd = 0;
+	program->map.collectible.qtd = 0;
+	program->map.player.steps = 0;
+	program->map.player.flag = 0;
+	program->map.exit.flag = 0;
 	check_map_extension(path, program);
 	read_map(path, program);
 	ft_putendl_fd("Lido com sucesso", 1);

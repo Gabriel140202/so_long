@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:13:42 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/24 14:38:49 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:57:47 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_error_program(t_program *program, int erro)
 	exit(0);
 }
 
-void	ft_error_map(char **map, int erro)
+void	ft_error_map(t_program *program, char **map, int erro)
 {
 	if (erro == 0)
 		ft_putstr_fd("Mensagem de erro padrao\n", 2);
@@ -39,5 +39,6 @@ void	ft_error_map(char **map, int erro)
 	if (erro == 5)
 		ft_putstr_fd("Invalid path\n", 2);
 	ft_free_map (map);
+	free(program);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:46:13 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/17 11:37:50 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:54:35 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		write(1, "Invalid number of arguments.\n", 31);
 		return (0);
 	}
-	program = ft_calloc(1, sizeof(t_program));
+	program = malloc(sizeof(t_program));
 	if (!program)
 		return (0);
 	ft_data(argv[1], program);
