@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:46:13 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/31 14:54:35 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:25:52 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "Invalid number of arguments.\n", 31);
+		write(1, "Invalid number of arguments.\n", 30);
 		return (0);
 	}
 	program = malloc(sizeof(t_program));

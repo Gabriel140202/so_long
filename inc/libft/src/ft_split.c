@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:16:18 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 10:21:02 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:36:10 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	write_string(char const *s, char c, char **string)
 		i++;
 	}
 	if (s[i - 1] != c)
-			*string = ft_substr(s, start, i - start);
+		*string = ft_substr(s, start, i - start);
 	if (s[i - 1] != c)
-			string++;
+		string++;
 	*string = NULL;
 }
 

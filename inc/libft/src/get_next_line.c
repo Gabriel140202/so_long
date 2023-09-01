@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:46:38 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/07 10:45:01 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:34:45 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	find_i(char *saved)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (saved[i])

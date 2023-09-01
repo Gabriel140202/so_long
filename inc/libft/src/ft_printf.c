@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:00:02 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 15:04:16 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:35:46 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(const char *str, ...)
 		else
 			i += ft_putchar_print(*str);
 		str++;
-	}		
+	}
 	va_end(args);
 	return (i);
 }

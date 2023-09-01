@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 10:15:41 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 10:21:43 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:36:28 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	ft_strlcpy(string, (char *)&s1[start], end - start + 2);
 	return (string);
-}	
+}

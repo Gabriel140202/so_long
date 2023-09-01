@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:49:12 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/07/05 10:21:17 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:33:21 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!string)
 		return (NULL);
 	while (s1[i] != '\0')
-	string[j++] = s1[i++];
+		string[j++] = s1[i++];
 	i = 0;
 	while (s2[i] != '\0')
 		string[j++] = s2[i++];
