@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 14:02:34 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/29 12:25:13 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:12:20 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	reset_img(t_program *program)
 
 	if (!program->map.collectible.qtd && program->map.exit.flag++ == 0)
 	{
-		mlx_destroy_image(program->mlx, program->map.exit.image);		
+		mlx_destroy_image(program->mlx, program->map.exit.image);
 		program->map.exit.image = program->map.exit.image_open;
-	}	
+	}
 	step = ft_itoa(program->map.player.steps);
 	mlx_clear_window(program->mlx, program->win);
 	put_images(program, program->map.map);
@@ -89,8 +89,8 @@ void	make_window(t_program *program)
 			&program->map.width, &program->map.height);
 	program->map.player.img_l = mlx_xpm_file_to_image(program->mlx, PLAYER_LEFT,
 			&program->map.width, &program->map.height);
-	program->map.player.img_r = mlx_xpm_file_to_image(program->mlx, PLAYER_RIGHT,
-			&program->map.width, &program->map.height);
+	program->map.player.img_r = mlx_xpm_file_to_image(program->mlx,
+			PLAYER_RIGHT, &program->map.width, &program->map.height);
 	program->map.exit.image_open = mlx_xpm_file_to_image(program->mlx, EXIT_2,
 			&program->map.width, &program->map.height);
 	reset_img(program);

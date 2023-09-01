@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:18:52 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/29 15:43:10 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:22:33 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_free_map(char **map)
 void	ft_free_img(t_program *program)
 {
 	mlx_destroy_image(program->mlx, program->map.collectible.image);
-	if(program->map.exit.flag == 0)
+	if (program->map.exit.flag == 0)
 		mlx_destroy_image(program->mlx, program->map.exit.image);
 	mlx_destroy_image(program->mlx, program->map.exit.image_open);
 	mlx_destroy_image(program->mlx, program->map.ground);
@@ -42,8 +42,8 @@ void	ft_free_img(t_program *program)
 
 int	ft_free_program(t_program *program)
 {
-	if(program->map.player.flag == 0)
-			mlx_destroy_image(program->mlx, program->map.player.image);
+	if (program->map.player.flag == 0)
+		mlx_destroy_image(program->mlx, program->map.player.image);
 	ft_free_map(program->map.map);
 	ft_free_img(program);
 	mlx_destroy_window(program->mlx, program->win);

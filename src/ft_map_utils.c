@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/31 15:08:12 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:23:03 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	check_map_extension(char *extension, t_program *program)
 void	check_first_last_line(t_program *program, int line, int size)
 {
 	int		i;
-	char 	**map2;
+	char	**map2;
 
-	map2 = program->map.map2;	
+	map2 = program->map.map2;
 	i = 0;
 	while ((map2[line][i] && i <= size - 2))
 	{

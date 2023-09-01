@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:48 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/31 14:53:35 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:08:02 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	read_map(char *path, t_program *program)
 	int				index;
 	t_list			*content;
 	char			*line;
+	int				size;
 
 	index = 0;
 	content = NULL;
@@ -55,7 +56,7 @@ void	read_map(char *path, t_program *program)
 	}
 	program->map.map = create_matrix(content, ft_lstsize(content));
 	program->map.map2 = create_matrix(content, ft_lstsize(content));
-	int size = ft_lstsize(content) - 1;
+	size = ft_lstsize(content) - 1;
 	ft_lstclear(&content, free);
 	check_map(size, program, program->map.map2);
 	close(fd);
