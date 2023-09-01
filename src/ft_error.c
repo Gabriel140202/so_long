@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:13:42 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/08/31 14:57:47 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:39:07 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error_program(t_program *program, int erro)
 {
 	if (erro == 0)
-		ft_putstr_fd("Mensagem de erro padrao\n", 2);
+		ft_putstr_fd("ERROR\n", 2);
 	if (erro == 1)
 		ft_putstr_fd("Wrong map extension\n", 2);
 	if (erro == 2)
@@ -27,7 +27,7 @@ void	ft_error_program(t_program *program, int erro)
 void	ft_error_map(t_program *program, char **map, int erro)
 {
 	if (erro == 0)
-		ft_putstr_fd("Mensagem de erro padrao\n", 2);
+		ft_putstr_fd("ERROR\n", 2);
 	if (erro == 1)
 		ft_putstr_fd("Map not created\n", 2);
 	if (erro == 2)
