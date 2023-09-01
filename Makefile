@@ -29,7 +29,7 @@ $(OBJ_DIR):
 $(NAME): $(OBJ) 
 	make -C inc/libft
 	make -C inc/minilibx-linux/
-	$(CC) $(OBJ) -lXext -lX11 -lm -Linc/libft -lft -Linc/minilibx-linux -lmlx -o $(NAME) -g3 #-fsanitize=address
+	$(CC) $(OBJ) -lXext -lX11 -lm -Linc/libft -lft -Linc/minilibx-linux -lmlx -o $(NAME) -g3 -fsanitize=address
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -50,4 +50,4 @@ run: re
 	$(MAKE) all
 	./$(NAME) ahhhhh.ber
 
-.PHONY: all clean fclean re  
+.PHONY: all clean fclean re run
