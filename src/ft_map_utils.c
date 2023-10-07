@@ -6,7 +6,7 @@
 /*   By: gfrancis <gfrancis@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:36:09 by gfrancis          #+#    #+#             */
-/*   Updated: 2023/09/01 14:23:03 by gfrancis         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:06:16 by gfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	check_first_last_line(t_program *program, int line, int size)
 void	check_position(t_program *program, size_t x, size_t y)
 {
 	if (!ft_strchr("PCE10X", program->map.map2[y][x]))
+	{
+		ft_free_map(program->map.map);
 		ft_error_map(program, program->map.map2, 4);
+	}
 	if (program->map.map2[y][x] == 'P')
 	{
 		program->map.player.qtd++;
@@ -72,12 +75,12 @@ void	check_body(t_program *program, char **map, int x, int y)
 			ft_error_map(program, program->map.map2, 2);
 		}
 		while (x <= program->map.width - 2)
-		{
-			check_position(program, x, y);
-			x++;
-		}
+			check_position(program, x++, y);
 		if (!(program->map.width == (int)ft_strlen(program->map.map2[y])))
+		{
+			ft_free_map(program->map.map);
 			ft_error_map(program, program->map.map2, 4);
+		}
 		x = 0;
 		y++;
 	}
